@@ -1,0 +1,51 @@
+@import url("./reset.scss");
+
+body {
+    background: #dce6d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.phone {
+    background-color: black;
+    border-radius: 50px;
+    height: 95%;
+    width: 420px;
+    padding: 50px 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    overflow-x: scroll;
+    .header__list {
+        display: flex;
+        gap: 10px;
+        color: white;
+        width: max-content;
+        .header__list-item {
+            border: 1px solid rgba($color: #fff, $alpha: 0.5);
+            padding: 10px;
+            border-radius: 20px;
+        }
+        .header__list-item--inverted {
+            background-color: white;
+            color: black;
+        }
+    }
+}
+
+.cards {
+    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    .cards__card {
+        background-color: white;
+        border-radius: 10px;
+        &:first-child {
+
+        }
+    }
+}
