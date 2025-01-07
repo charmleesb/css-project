@@ -1,9 +1,114 @@
 @import url("./reset.scss");
 
+$grey: #cacdcd;
+$darkgrey: #c6caca;
+$lightgrey: #d7dbdb;
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #BCBFBF;
+}
+
+.phone {
+    width: 480px;
+    height: 90%;
+    border-radius: 10px;    
+    background-color: $grey;
+    box-shadow: 5px 10px 10px rgba($color: #000000, $alpha: 0.5);
+    overflow: auto;
+    padding-bottom: 50px;
+}
+
+.header {
+    padding: 30px 15px 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header__title {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+.total {
+    background-color: #000000;
+    padding: 30px 15px;
+    color: $grey;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-weight: bold;
+    gap: 10px;
+    .total__price {
+        font-size: 22px;
+    }
+    .total__subtitle {
+        font-size: 14px;
+    }
+}
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: $darkgrey;
+    .item {
+        border-top: 3px solid #000000;
+        position: relative;
+        .item__info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: flex-start;
+            font-weight: bold;
+            padding: 30px 15px;
+            .item__info-col {
+                display: flex;
+                flex-direction: column;
+                .item__title {
+                    font-size: 42px;
+                }
+                .item__subtitle {
+                    font-size: 14px;
+                }
+                &:nth-child(2) {
+                    align-items: flex-end;
+                    gap: 5px;
+                }
+                .item__total-price {
+                    font-size: 34px;
+                }
+                .item__piece-price {
+                    font-size: 18px;
+                }
+            }
+        }
+        .item__specs {
+            border-top: 3px solid #000000;
+            border-bottom: 3px solid #000000;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 125px);
+            background-color: $lightgrey;
+            .spec {
+                padding: 25px;
+                display: flex;
+                font-weight: bold;
+                justify-content: center;
+                flex-direction: column;
+                &:last-child {
+                    border-left: 3px solid #000000;
+                }
+            }
+        }
+        .item__photo {
+            position: absolute;
+            width: 40%;
+            border: 3px solid #000000;
+            right: 15px;
+            bottom: 0;
+            height: 60%;
+            object-fit: cover;
+        }
+    }
 }
