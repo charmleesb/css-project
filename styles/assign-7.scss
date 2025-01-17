@@ -1,0 +1,232 @@
+@import url("reset.scss");
+
+$border: 1px;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f6f6;
+  padding: 50px 25px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  max-width: 770px;
+  width: 100%;
+  margin: 0 auto;
+  letter-spacing: -1px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 25px 1fr;
+  height: 100%;
+}
+
+.menu {
+  background-color: #FF7400;
+  padding: 10px 5px;
+  padding-top: 0;
+  height: 100%;
+}
+
+.nav {
+  border: $border solid #FF0300;
+  border-top: none;
+  box-sizing: border-box;
+  background-color: #FF7400;
+  display: grid;
+  grid-template-rows: 5px repeat(6, 1fr);
+  height: 100%;
+
+  .nav__items {
+    &:first-child {
+      border-top: $border solid #FF0300;
+    }
+
+    &+.nav__items {
+      border-top: $border solid #FF0300;
+    }
+
+    &.nav__items-selected {
+      border: $border solid white;
+      color: white;
+
+      .nav__items-sort {
+        border-right: $border solid white;
+      }
+
+      .nav__items-desc {
+        border-left: $border solid white;
+
+        .desc__btn {
+          border-top: $border solid white;
+        }
+
+        .desc__btn span {
+          background-color: white;
+          color: #FF0300;
+          border: $border solid white;
+        }
+      }
+    }
+
+    display: grid;
+    grid-template-columns: 18px 3fr 1fr;
+    color: #FF0300;
+
+    &>div {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__items-sort {
+      border-right: $border solid #FF0300;
+      justify-content: center;
+      width: 18px;
+      height: 100%;
+      padding: 5px 0;
+
+      span {
+        writing-mode: vertical-rl;
+        font-size: 8px;
+        transform: rotateZ(-180deg);
+        font-size: 600;
+      }
+    }
+
+    .nav__items-title {
+      font-size: 40px;
+      padding: 5px;
+      font-weight: 500;
+
+    }
+
+    .nav__items-desc {
+      flex-direction: column;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      text-align: center;
+      border-left: $border solid #FF0300;
+      width: 100%;
+
+      .desc__text {
+        font-size: 7px;
+        font-weight: 600;
+        line-height: 1em;
+        padding: 0 10px;
+      }
+
+      .desc__btn {
+        border-top: $border solid #FF0300;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+
+      }
+
+      .desc__btn span {
+        background-color: #FF0300;
+        color: #FF7400;
+        padding: 5px 5px;
+        border-radius: 25px;
+        font-size: 6px;
+        width: 100%;
+        font-weight: 200;
+      }
+    }
+  }
+
+
+}
+
+.line {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+
+  .line__item {
+    writing-mode: vertical-rl;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 10px 0;
+    font-weight: 600;
+    position: relative;
+
+    &:first-child {
+      background-color: #FF00FF;
+    }
+
+    &:last-child {
+      background-color: #1900FF;
+      transform: rotateZ(-180deg);
+    }
+
+    .line__icon {
+      position: absolute;
+      bottom: -11px;
+      z-index: 1;
+      left: 3px;
+      font-size: 30px;
+    }
+  }
+}
+
+.infos {
+  background-color: #FF0300;
+  display: grid;
+  grid-template-rows: 15px 1fr;
+  padding: 5px;
+
+  .infos__categories {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .category {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+
+      .category__check {
+        width: 11px;
+        height: 11px;
+        border-radius: 8px;
+        border: 1px solid black;
+
+        &.category__check-selected {
+          background-color: black;
+        }
+      }
+
+      .category__title {
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .infos__articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-weight: 600;
+    gap: 5px;
+    padding-top: 10px;
+
+    .article {
+      border-top: 1px solid black;
+      padding-top: 5px;
+
+      .article__title {
+        font-size: 10px;
+      }
+
+      .article__description {
+        font-size: 6px;
+      }
+    }
+  }
+}
